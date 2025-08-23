@@ -2,6 +2,7 @@ package com.devproject.listparty.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,22 +16,26 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String names;
 	private Double price;
 	private String category;
 	private String ramo;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT")
 	private String LongDescription;
 	
  public Product() {
 		}
 
- public Product(Long id, String name, Double price, String category, String ramo, String imgUrl, String shortDescription,
+ public Product(Long id, String names, Double price, String category, String ramo, String imgUrl, String shortDescription,
 		String longDescription) {
 	
 	this.id = id;
-	this.name = name;
+	this.names = names;
 	this.price = price;
 	this.category = category;
 	this.ramo = ramo;
@@ -47,12 +52,12 @@ public class Product {
 	this.id = id;
  }
 
- public String getName() {
-	return name;
+ public String getnames() {
+	return names;
  }
 
- public void setName(String name) {
-	this.name = name;
+ public void setnames(String names) {
+	this.names = names;
  }
 
  public Double getPrice() {
