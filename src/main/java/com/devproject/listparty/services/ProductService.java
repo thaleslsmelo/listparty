@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devproject.listparty.dto.ProductDTO;
 import com.devproject.listparty.dto.ProductMinDTO;
 import com.devproject.listparty.entities.Product;
+import com.devproject.listparty.projections.ProductMinProjection;
 import com.devproject.listparty.repositories.ProductRepository;
 
 @Service
@@ -28,6 +29,16 @@ public class ProductService {
 	public List<ProductMinDTO> findAll(){
 		
 		List<Product> result =  productRepository.findAll();
+		List<ProductMinDTO> dto = result.stream().map(x -> new ProductMinDTO(x)).toList();
+		return dto;
+		
+		
+	}
+	
+	@Transactional(readOnly = true)
+	public List<ProductMinDTO> findByList(Long listId){
+		
+		List<ProductMinProjection> result =  productRepository.searchByList(listId);
 		List<ProductMinDTO> dto = result.stream().map(x -> new ProductMinDTO(x)).toList();
 		return dto;
 		
