@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.devproject.listparty.dto.ProductDTO;
 import com.devproject.listparty.dto.ProductMinDTO;
 import com.devproject.listparty.entities.Product;
 import com.devproject.listparty.repositories.ProductRepository;
@@ -16,6 +18,13 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	@Transactional(readOnly = true)
+	public ProductDTO findById(Long id) {
+		Product result = productRepository.findById(id).get();
+		return new ProductDTO(result);
+	}
+	
+	@Transactional(readOnly = true)
 	public List<ProductMinDTO> findAll(){
 		
 		List<Product> result =  productRepository.findAll();
