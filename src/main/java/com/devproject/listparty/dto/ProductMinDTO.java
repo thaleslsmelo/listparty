@@ -26,6 +26,7 @@ public class ProductMinDTO {
 		price = entity.getPrice();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+		
 	}
 	public ProductMinDTO(ProductMinProjection projection) {
 		
