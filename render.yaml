@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: listparty
+    env: java
+    plan: free
+    buildCommand: "mvn clean package -DskipTests"
+    startCommand: "java -jar target/*.jar"
+    envVars:
+      - key: APP_PROFILE
+        value: prod
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
