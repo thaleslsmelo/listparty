@@ -47,6 +47,11 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+
 
     <build>
         <!-- Aqui garantimos que o jar final terá sempre o nome "app.jar" -->

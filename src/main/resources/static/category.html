@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ranking</title>
+</head>
+<body>
+  <h1>Ranking de Produtos</h1>
+  <div id="ranking"></div>
+
+  <script>
+    fetch("/lists/1/product") // lista 1 como exemplo
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("ranking");
+        data.forEach((p, i) => {
+          const div = document.createElement("div");
+          div.innerHTML = `
+            <h3>${i+1}º - ${p.names}</h3>
+            <img src="${p.imgUrl}" width="100">
+            <p>Preço: R$ ${p.price}</p>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
