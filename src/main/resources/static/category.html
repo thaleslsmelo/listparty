@@ -6,23 +6,26 @@
 </head>
 <body>
   <h1>Ranking de Produtos</h1>
-  <div id="ranking"></div>
+  <div id="list"></div>
 
   <script>
-    fetch("/lists/1/product") // lista 1 como exemplo
+    fetch("/lists")
       .then(res => res.json())
       .then(data => {
-        const container = document.getElementById("ranking");
+        const container = document.getElementById("list");
         data.forEach((p, i) => {
           const div = document.createElement("div");
           div.innerHTML = `
             <h3>${i+1}º - ${p.names}</h3>
-            <img src="${p.imgUrl}" width="100">
-            <p>Preço: R$ ${p.price}</p>
+			<a href="productlist.html?id=${p.id}" class="btn btn-primary mt-auto">Ver detalhes</a>      
           `;
           container.appendChild(div);
         });
-      });
+      })		
+	  .catch(err => {
+	   document.getElementById("product").innerHTML =
+		"<p class='text-danger'>Erro ao carregar ranking</p>";
+});
   </script>
 </body>
 </html>
