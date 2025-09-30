@@ -3,8 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>Ranking</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url("https://raw.githubusercontent.com/thaleslsmelo/listparty/refs/heads/main/src/main/resources/imagens/principal.png") 
+     ;
+      background-size: cover; /* cobre toda a tela */
+      color: white; /* deixa o texto legível */
+      text-align: center;
+    }
+
+	h1 {
+	   background: rgb(255, 128, 192);
+	   padding: 10px; /*/cresce a moldura*/
+	   margin-top: 250px;
+
+	   border-radius: 10px; /*arrendonda*/
+	   display: inline-list-item;
+	 }
+
+
+	 #list {
+
+
+	   background: rgb(255, 128, 192);
+	   padding: 20px;
+	   margin: 10px; /*---estica*/
+	   border-radius: 10px;
+	   display: inline-grid;
+	 }
+
+    a {
+      color: yellow;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+
   <h1>Ranking de Produtos</h1>
   <div id="list"></div>
 
@@ -17,15 +60,16 @@
           const div = document.createElement("div");
           div.innerHTML = `
             <h3>${i+1}º - ${p.names}</h3>
-			<a href="productlist.html?id=${p.id}" class="btn btn-primary mt-auto">Ver detalhes</a>      
+            <a href="productlist.html?id=${p.id}">Ver detalhes</a>
           `;
           container.appendChild(div);
         });
       })		
-	  .catch(err => {
-	   document.getElementById("product").innerHTML =
-		"<p class='text-danger'>Erro ao carregar ranking</p>";
-});
+      .catch(err => {
+        document.getElementById("list").innerHTML =
+          "<p style='color:red'>Erro ao carregar ranking</p>";
+      });
   </script>
+
 </body>
 </html>
