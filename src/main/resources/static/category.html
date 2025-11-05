@@ -26,6 +26,18 @@
 	  font-weight: bold;
 	  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
 	}
+	.meuBotao {
+		  background: rgb(255, 128, 192);
+		  padding: 15px 30px;
+		  margin-top: 230px;
+		  border-radius: 10px;
+		  display: inline-block;
+		  font-size: 24px;
+		  color: white;
+		  font-weight: bold;
+		  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+		  text-decoration: none;
+		}
 
 	#list {
 	  display: flex;
@@ -46,6 +58,9 @@
 	#list div:hover {
 	  transform: scale(1.05);
 	}
+	.meuBotao {
+		  transform: scale(1.05);
+		}
 
 	#list h3 {
 	  margin: 0 0 10px;
@@ -68,6 +83,8 @@
 <body>
 
   <h1>Ranking de Produtos</h1>
+ 
+
   <div id="list"></div>
 
   <script>
@@ -89,6 +106,9 @@
           "<p style='color:red'>Erro ao carregar ranking</p>";
       });
   </script>
+  
+  <a href="index.html" class="meuBotao">Lista de Produtos</a>
+
 
 </body>
 </html>
